@@ -1,1 +1,1 @@
-# portfolio_mined
+# MY Tech Sums
