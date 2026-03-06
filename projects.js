@@ -51,6 +51,22 @@ const projectsData = {
             github: "#"
         }
     },
+
+        "Property Sales Site": {
+        title: "Property Sales Site",
+        description: "A real estate project built for property sales",
+        technologies: ["Html", "JavaScript", "CSS"],
+        features: [
+            "Real estate listing management",
+            "Automated contact form handling",
+            "Responsive design for mobile and desktop"
+        ],
+        image: "images/project-realestate.png",
+        links: {
+            live: "https://delloydb.github.io/propertytech-landing-page/",
+            github: "https://github.com/delloydb/propertytech-landing-page"
+        }
+    },
     // Other projects would follow same structure
 };
 
@@ -60,7 +76,7 @@ projectCards.forEach(card => {
         // Don't open modal if clicking on links
         if (!e.target.closest('.project-links')) {
             const projectTitle = card.querySelector('h3').textContent.toLowerCase().replace(/\s+/g, '-');
-            openModal(projectsData[projectTitle] || projectsData['neural-network-optimizer']);
+            openModal(projectsData[projectTitle] || projectsData['Property Sales Site']);
         }
     });
 });
