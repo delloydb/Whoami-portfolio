@@ -148,6 +148,51 @@ blockquote {
     display: none;
 }
 
+/* Certifications Section */
+.certifications {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-items: center;
+}
+
+.badge-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.badge-card:hover {
+    transform: scale(1.05);
+}
+
+.badge-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.badge-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.badge-card p {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .bio-section {
