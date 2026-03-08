@@ -83,6 +83,23 @@ const projectsData = {
             github: "https://github.com/delloydb/project-capsule"
         }
     },
+
+        "Fruiti Lab": {
+        title: "Fruiti Lab",
+        description: "A fun and interactive project for exploring the world of fruits",
+        technologies: ["Html", "JavaScript", "CSS"],
+        features: [
+            "Fruit information database",
+            "Interactive fruit visualization",
+            "Nutritional value comparison"
+        ],
+        image: "images/fruiti-lab.png",
+        links: {
+            live: "https://delloydb.github.io/fruiti-lab/",
+            github: "https://github.com/delloydb/fruiti-lab"
+        }
+    }
+
     // Other projects would follow same structure
 };
 
