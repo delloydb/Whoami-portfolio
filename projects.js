@@ -67,6 +67,22 @@ const projectsData = {
             github: "https://github.com/delloydb/propertytech-landing-page"
         }
     },
+
+        "Digital Time Capsule": {
+        title: "Digital Time Capsule",
+        description: "A superstitious project built for past life reservations of epic memories",
+        technologies: ["Html", "JavaScript", "CSS"],
+        features: [
+            "Memory reservation system",
+            "User authentication and profile management",
+            "Interactive timeline of past life events"
+        ],
+        image: "images/project-capsule.png",
+        links: {
+            live: "https://delloydb.github.io/project-capsule/",
+            github: "https://github.com/delloydb/project-capsule"
+        }
+    },
     // Other projects would follow same structure
 };
 
