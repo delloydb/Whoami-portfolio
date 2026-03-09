@@ -5,42 +5,103 @@
     padding: 100px 5% 50px;
 }
 
+/* Hero Section */
 .about-hero {
     text-align: center;
     margin-bottom: 3rem;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.1) 0%, rgba(10, 25, 47, 0) 100%);
+    border-radius: 40px;
 }
 
+.hero-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent);
+    box-shadow: 0 10px 30px -10px var(--accent);
+}
+
+.hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.hero-brief {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.hero-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.hero-socials a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.hero-socials a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Bio Toggle - modern pill style */
 .bio-toggle {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     gap: 1rem;
 }
 
 .bio-btn {
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 2rem;
     background: none;
-    border: none;
+    border: 2px solid var(--text-secondary);
+    border-radius: 40px;
     color: var(--text-secondary);
-    cursor: pointer;
     font-family: 'Fira Code', monospace;
-    position: relative;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .bio-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--primary-bg);
+}
+
+.bio-btn:hover:not(.active) {
+    border-color: var(--accent);
     color: var(--accent);
 }
 
-.bio-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--accent);
-}
-
+/* Bio Sections */
 .bio-section {
     display: flex;
     gap: 3rem;
@@ -51,147 +112,350 @@
     flex: 2;
 }
 
+.bio-content h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+/* Enhanced Timeline */
 .timeline {
     position: relative;
     padding-left: 2rem;
-    border-left: 2px solid var(--accent);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent);
 }
 
 .timeline-item {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     position: relative;
+    display: flex;
+    gap: 1rem;
 }
 
-.timeline-item::before {
-    content: '';
+.timeline-icon {
     position: absolute;
     left: -2.5rem;
-    top: 0;
-    width: 15px;
-    height: 15px;
+    width: 40px;
+    height: 40px;
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
     border-radius: 50%;
-    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.2rem;
+    z-index: 2;
+    box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+.timeline-content {
+    flex: 1;
+    padding-left: 1rem;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
 }
 
 .timeline-date {
     color: var(--accent);
     font-size: 0.9rem;
+    font-family: 'Fira Code', monospace;
+    margin-bottom: 0.2rem;
 }
 
 .timeline-location {
     font-weight: 600;
-    margin: 0.3rem 0;
+    margin: 0.2rem 0 0.5rem;
+    color: var(--text-secondary);
 }
 
+.timeline-content p:last-child {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Skills Chart - modern bars */
 .skills-chart {
     flex: 1;
     background: var(--card-bg);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 20px;
     align-self: flex-start;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.skills-chart h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
 }
 
 .skill-meter {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .skill {
     margin-bottom: 1.5rem;
+    position: relative;
 }
 
 .skill::before {
     content: attr(data-skill);
     display: block;
     margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
 }
 
-.skill::after {
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar::after {
     content: '';
     display: block;
     width: 0;
-    height: 8px;
+    height: 100%;
     background: var(--accent);
-    transition: width 1s ease-out;
+    border-radius: 4px;
+    transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.personal-bio {
+.skill.animate .skill-bar::after {
+    width: var(--skill-level);
+}
+
+/* If no extra element, use pseudo on skill? Better to add span in JS, but we'll adjust via JS. For simplicity, we'll modify JS to inject bar. */
+
+/* Personal Bio */
+.personal-bio .personal-content {
     text-align: center;
+}
+
+.personal-bio h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
 }
 
 .interests-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
 }
 
 .interest-card {
     background: var(--card-bg);
     padding: 1.5rem;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    border-radius: 16px;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    border: 1px solid transparent;
+    text-align: left;
 }
 
 .interest-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
 }
 
-blockquote {
+.interest-card i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.interest-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.interest-card p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.personal-quote {
+    max-width: 700px;
+    margin: 2.5rem auto;
+}
+
+.personal-quote blockquote {
     font-style: italic;
-    border-left: 3px solid var(--accent);
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent);
     padding-left: 1.5rem;
+    text-align: left;
+}
+
+.quote-author {
+    margin-top: 0.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: right;
+}
+
+.personal-photo {
+    max-width: 400px;
     margin: 2rem auto;
-    max-width: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--accent);
 }
 
-.hidden {
-    display: none;
+.personal-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Certifications Section */
-.certifications {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+/* Current Stack Section */
+.current-stack {
+    margin: 4rem 0;
     text-align: center;
+}
+
+.current-stack h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stack-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.stack-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 40px;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.stack-item:hover {
+    transform: scale(1.05);
+    border-color: var(--accent);
+}
+
+.stack-item i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.stack-item span {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Certifications - enhanced cards */
+.certifications {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.certifications h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .badges-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-    justify-items: center;
 }
 
 .badge-card {
     background: var(--card-bg);
     padding: 1.5rem;
-    border-radius: 10px;
-    width: 200px;
-    transition: transform 0.3s;
+    border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
 .badge-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
+}
+
+.badge-card a {
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.badge-card a:hover {
+    border-color: var(--accent);
 }
 
 .badge-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 1rem;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    background: #1a2a3a;
 }
 
 .badge-card h3 {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.2rem;
+    color: var(--text-primary);
+}
+
+.badge-card .issuer {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .badge-card p {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
 }
 
+/* Hidden class */
+.hidden {
+    display: none !important;
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -201,5 +465,27 @@ blockquote {
     
     .skills-chart {
         width: 100%;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 2rem;
+    }
+    
+    .timeline-icon {
+        left: -1.5rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .hero-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .about-hero h1 {
+        font-size: 2rem;
     }
 }

@@ -25,21 +25,25 @@ discussionForm.addEventListener('submit', (e) => {
     const category = document.getElementById('topicCategory').value;
     const content = document.getElementById('topicContent').value;
     
-    // Create new thread card
+    // Create new thread card with modern structure
     const newThread = document.createElement('div');
     newThread.className = 'thread-card';
+    newThread.setAttribute('data-category', category);
     newThread.innerHTML = `
-        <div class="thread-header">
-            <span class="thread-category ${category}">${getCategoryName(category)}</span>
-            <h3>${title}</h3>
-            <span class="thread-author">Posted by You • Just now</span>
+        <div class="thread-avatar">
+            <img src="https://i.pravatar.cc/40?u=${Date.now()}" alt="Your avatar">
         </div>
         <div class="thread-content">
-            <p>${content.substring(0, 100)}${content.length > 100 ? '...' : ''}</p>
-        </div>
-        <div class="thread-stats">
-            <span><i class="fas fa-comment"></i> 0 replies</span>
-            <span><i class="fas fa-eye"></i> 1 view</span>
+            <div class="thread-header">
+                <span class="thread-category ${category}">${getCategoryName(category)}</span>
+                <h3>${escapeHTML(title)}</h3>
+            </div>
+            <p class="thread-preview">${escapeHTML(content.substring(0, 100))}${content.length > 100 ? '...' : ''}</p>
+            <div class="thread-meta">
+                <span class="thread-author"><i class="fas fa-user-circle"></i> You • Just now</span>
+                <span class="thread-stats"><i class="fas fa-comment"></i> 0 replies</span>
+                <span class="thread-stats"><i class="fas fa-eye"></i> 1 view</span>
+            </div>
         </div>
     `;
     
@@ -57,6 +61,17 @@ discussionForm.addEventListener('submit', (e) => {
         newThread.style.transform = 'translateY(0)';
     }, 10);
 });
+
+// Helper: escape HTML to prevent XSS
+function escapeHTML(str) {
+    return str.replace(/[&<>"]/g, function(match) {
+        if (match === '&') return '&amp;';
+        if (match === '<') return '&lt;';
+        if (match === '>') return '&gt;';
+        if (match === '"') return '&quot;';
+        return match;
+    });
+}
 
 function getCategoryName(category) {
     const categories = {
@@ -95,12 +110,16 @@ challengeCards.forEach(card => {
 // Live Code Collaboration
 const joinSessionBtn = document.getElementById('joinSessionBtn');
 const liveCodeBlock = document.getElementById('liveCodeBlock');
+const onlineCountSpan = document.getElementById('onlineCount');
 
 // Simulate live editing (in real app would use WebSockets)
 joinSessionBtn.addEventListener('click', () => {
     joinSessionBtn.innerHTML = '<i class="fas fa-network-wired"></i> Connected';
     joinSessionBtn.classList.remove('btn-primary');
     joinSessionBtn.classList.add('btn-connected');
+    
+    // Update online count
+    onlineCountSpan.textContent = '6';
     
     // Make code block editable
     liveCodeBlock.setAttribute('contenteditable', 'true');
@@ -113,26 +132,34 @@ joinSessionBtn.addEventListener('click', () => {
 function simulateCollaboration() {
     const codeExamples = [
         '\n\n// Example from collaborator:\nconst optimize = (model) => {\n  // Prune small weights\n  return model.compressed();\n};',
-        '\n\n/* Sarah's suggestion:\nUse quantization for \nfurther size reduction */',
+        '\n\n/* Sarah\'s suggestion:\nUse quantization for \nfurther size reduction */',
         '\n\n// Debug tip:\nconsole.log("Layer sizes:", model.layers.map(l => l.size));'
     ];
     
     const randomCode = codeExamples[Math.floor(Math.random() * codeExamples.length)];
     liveCodeBlock.textContent += randomCode;
+    
+    // Keep cursor at end
+    const range = document.createRange();
+    const sel = window.getSelection();
+    range.selectNodeContents(liveCodeBlock);
+    range.collapse(false);
+    sel.removeAllRanges();
+    sel.addRange(range);
 }
 
-// Add syntax highlighting (would use a library like Prism.js in production)
+// Simple syntax highlighting simulation (just for demo)
 function applySyntaxHighlighting() {
-    const keywords = ['function', 'return', 'if', 'else', 'for', 'while'];
-    let code = liveCodeBlock.textContent;
-    
-    keywords.forEach(keyword => {
-        const regex = new RegExp(`\\b${keyword}\\b`, 'g');
-        code = code.replace(regex, `<span class="code-keyword">${keyword}</span>`);
-    });
-    
-    liveCodeBlock.innerHTML = code;
+    // In production, use Prism.js or similar.
+    // This is a very basic placeholder.
 }
 
-// Periodically apply highlighting
-setInterval(applySyntaxHighlighting, 2000);
+// Periodically update "online" count to simulate activity
+setInterval(() => {
+    if (joinSessionBtn.classList.contains('btn-connected')) {
+        const current = parseInt(onlineCountSpan.textContent, 10);
+        const change = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+        const newCount = Math.max(1, current + change);
+        onlineCountSpan.textContent = newCount;
+    }
+}, 5000);

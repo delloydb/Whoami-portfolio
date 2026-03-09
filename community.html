@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar (unchanged) -->
     <header class="header">
         <nav class="navbar">
             <div class="logo">LLOYD-B</div>
@@ -24,11 +24,28 @@
         </nav>
     </header>
 
-    <!-- Community Main Content -->
+    <!-- Community Main Content (redesigned) -->
     <main class="community-container">
-        <section class="community-header">
-            <h1>Tech <span class="highlight">Community</span></h1>
-            <p>Sharing knowledge and collaborating with developers worldwide</p>
+        <!-- Hero Section -->
+        <section class="community-hero">
+            <div class="hero-content">
+                <h1>Join the <span class="highlight">Tech Community</span></h1>
+                <p class="hero-subtitle">Share knowledge, solve challenges, and collaborate with developers worldwide.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1,234</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">156</span>
+                        <span class="stat-label">Discussions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Challenges</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Discussion Forum -->
@@ -44,7 +61,7 @@
                 <form id="discussionForm">
                     <div class="form-group">
                         <label for="topicTitle">Title</label>
-                        <input type="text" id="topicTitle" required>
+                        <input type="text" id="topicTitle" required placeholder="e.g., Best practices for microservices">
                     </div>
                     <div class="form-group">
                         <label for="topicCategory">Category</label>
@@ -57,7 +74,7 @@
                     </div>
                     <div class="form-group">
                         <label for="topicContent">Content</label>
-                        <textarea id="topicContent" rows="5" required></textarea>
+                        <textarea id="topicContent" rows="5" required placeholder="Share your thoughts..."></textarea>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn-primary">Post</button>
@@ -70,33 +87,39 @@
             <div class="discussion-threads" id="discussionThreads">
                 <!-- Sample Thread 1 -->
                 <div class="thread-card">
-                    <div class="thread-header">
-                        <span class="thread-category ai">AI</span>
-                        <h3>Optimizing Transformer Models for Edge Devices</h3>
-                        <span class="thread-author">Posted by Lloyd • 2 days ago</span>
+                    <div class="thread-avatar">
+                        <img src="https://i.pravatar.cc/40?img=1" alt="User avatar">
                     </div>
                     <div class="thread-content">
-                        <p>Exploring techniques to reduce model size while maintaining accuracy for mobile deployment...</p>
-                    </div>
-                    <div class="thread-stats">
-                        <span><i class="fas fa-comment"></i> 14 replies</span>
-                        <span><i class="fas fa-eye"></i> 238 views</span>
+                        <div class="thread-header">
+                            <span class="thread-category ai">AI</span>
+                            <h3>Optimizing Transformer Models for Edge Devices</h3>
+                        </div>
+                        <p class="thread-preview">Exploring techniques to reduce model size while maintaining accuracy for mobile deployment...</p>
+                        <div class="thread-meta">
+                            <span class="thread-author"><i class="fas fa-user-circle"></i> Lloyd • 2 days ago</span>
+                            <span class="thread-stats"><i class="fas fa-comment"></i> 14 replies</span>
+                            <span class="thread-stats"><i class="fas fa-eye"></i> 238 views</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Sample Thread 2 -->
                 <div class="thread-card">
-                    <div class="thread-header">
-                        <span class="thread-category webdev">Web</span>
-                        <h3>React vs Svelte Performance Comparison</h3>
-                        <span class="thread-author">Posted by Sarah • 1 week ago</span>
+                    <div class="thread-avatar">
+                        <img src="https://i.pravatar.cc/40?img=2" alt="User avatar">
                     </div>
                     <div class="thread-content">
-                        <p>Benchmark results and analysis of modern frontend frameworks in resource-constrained environments...</p>
-                    </div>
-                    <div class="thread-stats">
-                        <span><i class="fas fa-comment"></i> 27 replies</span>
-                        <span><i class="fas fa-eye"></i> 512 views</span>
+                        <div class="thread-header">
+                            <span class="thread-category webdev">Web</span>
+                            <h3>React vs Svelte Performance Comparison</h3>
+                        </div>
+                        <p class="thread-preview">Benchmark results and analysis of modern frontend frameworks in resource-constrained environments...</p>
+                        <div class="thread-meta">
+                            <span class="thread-author"><i class="fas fa-user-circle"></i> Sarah • 1 week ago</span>
+                            <span class="thread-stats"><i class="fas fa-comment"></i> 27 replies</span>
+                            <span class="thread-stats"><i class="fas fa-eye"></i> 512 views</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +135,7 @@
                     <h3>Distributed Key-Value Store</h3>
                     <p>Implement a simple but scalable distributed storage system</p>
                     <div class="challenge-meta">
-                        <span>15 submissions</span>
+                        <span><i class="fas fa-code-branch"></i> 15 submissions</span>
                         <button class="btn-secondary">View Challenge</button>
                     </div>
                 </div>
@@ -123,7 +146,18 @@
                     <h3>Neural Network Pruning</h3>
                     <p>Reduce model size while maintaining >95% accuracy</p>
                     <div class="challenge-meta">
-                        <span>8 submissions</span>
+                        <span><i class="fas fa-code-branch"></i> 8 submissions</span>
+                        <button class="btn-secondary">View Challenge</button>
+                    </div>
+                </div>
+
+                <!-- Challenge 3 (new) -->
+                <div class="challenge-card">
+                    <div class="challenge-difficulty beginner">Beginner</div>
+                    <h3>Build a Portfolio Site</h3>
+                    <p>Create a responsive personal portfolio with HTML, CSS, and JS</p>
+                    <div class="challenge-meta">
+                        <span><i class="fas fa-code-branch"></i> 42 submissions</span>
                         <button class="btn-secondary">View Challenge</button>
                     </div>
                 </div>
@@ -135,19 +169,22 @@
             <h2>Live Code Collaboration</h2>
             <div class="code-editor">
                 <div class="editor-header">
-                    <span>JavaScript • Real-time</span>
+                    <span><i class="fas fa-code"></i> JavaScript • Real-time</span>
                     <button class="btn-primary" id="joinSessionBtn"><i class="fas fa-user-plus"></i> Join Session</button>
                 </div>
-                <pre><code id="liveCodeBlock">// Welcome to the collaborative editor
+                <div class="editor-body">
+                    <pre><code id="liveCodeBlock" class="language-javascript">// Welcome to the collaborative editor
 // Start typing here to participate
 
 function fibonacci(n) {
     if (n <= 1) return n;
     return fibonacci(n - 1) + fibonacci(n - 2);
-}
-</code></pre>
+}</code></pre>
+                </div>
                 <div class="editor-footer">
-                    <span>5 developers online</span>
+                    <div class="online-users">
+                        <i class="fas fa-users"></i> <span id="onlineCount">5</span> developers online
+                    </div>
                     <div class="editor-actions">
                         <button class="btn-secondary"><i class="fas fa-copy"></i> Copy</button>
                         <button class="btn-secondary"><i class="fas fa-save"></i> Save</button>
@@ -157,6 +194,7 @@ function fibonacci(n) {
         </section>
     </main>
 
+    <!-- Footer (unchanged) -->
     <footer class="footer">
         <p>&copy; 2026 Lloyd Brown. All rights reserved.</p>
     </footer>
@@ -164,6 +202,4 @@ function fibonacci(n) {
     <script src="script.js"></script>
     <script src="community.js"></script>
 </body>
-
 </html>
-
