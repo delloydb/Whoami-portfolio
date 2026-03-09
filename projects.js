@@ -13,7 +13,7 @@ filterButtons.forEach(button => {
         // Filter projects
         projectCards.forEach(card => {
             if (filterValue === 'all' || card.dataset.category === filterValue) {
-                card.style.display = 'block';
+                card.style.display = 'flex';  // Ensure card uses flex
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
@@ -33,7 +33,7 @@ filterButtons.forEach(button => {
 const modal = document.getElementById('projectModal');
 const closeModal = document.querySelector('.close-modal');
 
-// Sample project data (would typically come from an API in real implementation)
+// Complete project data for all cards
 const projectsData = {
     "neural-network-optimizer": {
         title: "Neural Network Optimizer",
@@ -45,21 +45,21 @@ const projectsData = {
             "Automated benchmarking suite",
             "Visualization tools for model analysis"
         ],
-        image: "images/project-ai-optimization.jpg",
+        image: "images/comingsoon.jpg",
         links: {
             live: "#",
             github: "#"
         }
     },
-
-        "Property Sales Site": {
+    "property-sales-site": {
         title: "Property Sales Site",
-        description: "A real estate project built for property sales",
-        technologies: ["Html", "JavaScript", "CSS"],
+        description: "A real estate project built for property sales. Features modern design and seamless user experience for listing and browsing properties.",
+        technologies: ["HTML", "JavaScript", "CSS"],
         features: [
-            "Real estate listing management",
+            "Property listing management",
             "Automated contact form handling",
-            "Responsive design for mobile and desktop"
+            "Responsive design for mobile and desktop",
+            "Search and filter functionality"
         ],
         image: "images/project-realestate.png",
         links: {
@@ -67,15 +67,47 @@ const projectsData = {
             github: "https://github.com/delloydb/propertytech-landing-page"
         }
     },
-
-        "Digital Time Capsule": {
+    "distributed-key-value-store": {
+        title: "Distributed Key-Value Store",
+        description: "A highly available, consistent key-value storage system implementing the RAFT consensus algorithm. Designed for fault tolerance and scalability.",
+        technologies: ["Go", "gRPC", "Docker", "Raft"],
+        features: [
+            "RAFT consensus for strong consistency",
+            "Automatic leader election and failover",
+            "gRPC-based communication",
+            "Dockerized deployment"
+        ],
+        image: "images/comingsoon.jpg",
+        links: {
+            live: "#",
+            github: "#"
+        }
+    },
+    "uiux-design-portfolio": {
+        title: "UI/UX Design Portfolio",
+        description: "A collection of UI/UX design projects and case studies showcasing user-centered design processes, wireframes, prototypes, and final interfaces.",
+        technologies: ["Figma", "Adobe XD", "Sketch", "InVision"],
+        features: [
+            "Interactive prototypes",
+            "User journey maps",
+            "Design system documentation",
+            "Usability testing results"
+        ],
+        image: "images/project-portfolio.png",
+        links: {
+            live: "https://www.figma.com/design/GClFNvz1ZDJ3Kh01AjfzYS/SHERIFF?node-id=0-1&t=pxXx3H3T7VadNzRc-1",
+            github: "https://www.figma.com/design/GClFNvz1ZDJ3Kh01AjfzYS/SHERIFF?node-id=0-1&t=pxXx3H3T7VadNzRc-1"
+        }
+    },
+    "digital-time-capsule": {
         title: "Digital Time Capsule",
-        description: "A superstitious project built for past life reservations of epic memories",
-        technologies: ["Html", "JavaScript", "CSS"],
+        description: "A superstitious project built for past life reservations of epic memories. Users can create digital time capsules to preserve moments for future discovery.",
+        technologies: ["HTML", "JavaScript", "CSS", "Firebase"],
         features: [
             "Memory reservation system",
-            "User authentication and profile management",
-            "Interactive timeline of past life events"
+            "User authentication and profiles",
+            "Interactive timeline of events",
+            "Encrypted storage"
         ],
         image: "images/project-capsule.png",
         links: {
@@ -83,33 +115,36 @@ const projectsData = {
             github: "https://github.com/delloydb/project-capsule"
         }
     },
-
-        "Fruiti Lab": {
+    "fruiti-lab": {
         title: "Fruiti Lab",
-        description: "A fun and interactive project for exploring the world of fruits",
-        technologies: ["Html", "JavaScript", "CSS"],
+        description: "A fun and interactive project for exploring the world of fruits. Learn about different fruits, their nutritional values, and enjoy visualizations.",
+        technologies: ["HTML", "JavaScript", "CSS", "D3.js"],
         features: [
             "Fruit information database",
             "Interactive fruit visualization",
-            "Nutritional value comparison"
+            "Nutritional value comparison charts",
+            "Search and filter by properties"
         ],
         image: "images/fruiti-lab.png",
         links: {
-            live: "https://delloydb.github.io/fruiti-lab/",
-            github: "https://github.com/delloydb/fruiti-lab"
+            live: "https://delloydb.github.io/fruitilab-main/",
+            github: "https://github.com/delloydb/fruitilab-main"
         }
     }
-
-    // Other projects would follow same structure
 };
 
-// Open modal when project card is clicked
+// Open modal when project card is clicked (using data-project-id)
 projectCards.forEach(card => {
     card.addEventListener('click', (e) => {
         // Don't open modal if clicking on links
         if (!e.target.closest('.project-links')) {
-            const projectTitle = card.querySelector('h3').textContent.toLowerCase().replace(/\s+/g, '-');
-            openModal(projectsData[projectTitle] || projectsData['Property Sales Site']);
+            const projectId = card.dataset.projectId;
+            const project = projectsData[projectId];
+            if (project) {
+                openModal(project);
+            } else {
+                console.warn('No data found for project:', projectId);
+            }
         }
     });
 });
@@ -140,10 +175,10 @@ function openModal(project) {
             </div>
             
             <div class="modal-links">
-                <a href="${project.links.live}" class="btn-primary" target="_blank">
+                <a href="${project.links.live}" class="btn-primary" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-external-link-alt"></i> Live Demo
                 </a>
-                <a href="${project.links.github}" class="btn-secondary" target="_blank">
+                <a href="${project.links.github}" class="btn-secondary" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i> View Code
                 </a>
             </div>
@@ -168,7 +203,7 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Animate project cards on scroll
+// Animate project cards on scroll (already handled in CSS, but keep for older browsers)
 const projectObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -176,11 +211,14 @@ const projectObserver = new IntersectionObserver((entries) => {
             entry.target.style.transform = "translateY(0)";
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.1, rootMargin: "50px" });
 
 projectCards.forEach(card => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
-    card.style.transition = "opacity 0.5s, transform 0.5s";
+    // Set initial state if not already set by CSS
+    if (!card.style.opacity) {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    }
     projectObserver.observe(card);
 });
