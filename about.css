@@ -286,9 +286,9 @@
 }
 
 .interests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin: 2rem 0;
 }
 
