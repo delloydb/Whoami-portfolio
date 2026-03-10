@@ -244,7 +244,36 @@
 }
 
 /* If no extra element, use pseudo on skill? Better to add span in JS, but we'll adjust via JS. For simplicity, we'll modify JS to inject bar. */
+/* Category headings */
+.skills-category {
+    margin-bottom: 2rem;
+}
 
+.skills-category h4 {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+/* Responsive grid layout for larger screens */
+@media (min-width: 768px) {
+    .skills-chart {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .skills-chart h3 {
+        grid-column: 1 / -1;  /* Title spans all columns */
+        margin-bottom: 1rem;
+    }
+
+    .skills-category {
+        margin-bottom: 0;  /* Remove bottom margin inside grid */
+    }
+}
 /* Personal Bio */
 .personal-bio .personal-content {
     text-align: center;
