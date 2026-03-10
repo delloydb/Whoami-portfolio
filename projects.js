@@ -33,24 +33,8 @@ filterButtons.forEach(button => {
 const modal = document.getElementById('projectModal');
 const closeModal = document.querySelector('.close-modal');
 
-// Complete project data for all cards
+// Complete project data for all cards (AI/ML entry removed, new projects added)
 const projectsData = {
-    "neural-network-optimizer": {
-        title: "Neural Network Optimizer",
-        description: "A comprehensive framework for optimizing deep learning models that achieves 40% faster inference times without sacrificing accuracy. Implements novel pruning and quantization techniques.",
-        technologies: ["Python", "TensorFlow", "CUDA", "ONNX Runtime"],
-        features: [
-            "Layer-wise pruning algorithms",
-            "Dynamic quantization for GPU/CPU",
-            "Automated benchmarking suite",
-            "Visualization tools for model analysis"
-        ],
-        image: "images/comingsoon.jpg",
-        links: {
-            live: "#",
-            github: "#"
-        }
-    },
     "property-sales-site": {
         title: "Property Sales Site",
         description: "A real estate project built for property sales. Features modern design and seamless user experience for listing and browsing properties.",
@@ -130,6 +114,57 @@ const projectsData = {
             live: "https://delloydb.github.io/fruitilab-main/",
             github: "https://github.com/delloydb/fruitilab-main"
         }
+    },
+    // NEW PROJECT 6
+    "secure-auth-system": {
+        title: "Secure Authentication System",
+        description: "A robust authentication system implementing OAuth 2.0, JWT, and multi-factor authentication for web applications. Ensures secure user access and session management.",
+        technologies: ["Node.js", "Express", "MongoDB", "Passport.js"],
+        features: [
+            "OAuth 2.0 integration (Google, GitHub)",
+            "JWT token management with refresh tokens",
+            "Multi-factor authentication (TOTP)",
+            "User session management and role-based access"
+        ],
+        image: "images/comingsoon.jpg",
+        links: {
+            live: "#",
+            github: "#"
+        }
+    },
+    // NEW PROJECT 7
+    "ecommerce-dashboard": {
+        title: "E-Commerce Dashboard",
+        description: "A comprehensive dashboard for managing e-commerce operations including inventory, orders, and customer analytics. Built for real-time data visualization.",
+        technologies: ["React", "Redux", "Node.js", "Chart.js"],
+        features: [
+            "Real-time inventory tracking",
+            "Order management system with status updates",
+            "Customer analytics charts (sales, trends)",
+            "Product catalog management"
+        ],
+        image: "images/comingsoon.jpg",
+        links: {
+            live: "#",
+            github: "#"
+        }
+    },
+    // NEW PROJECT 8
+    "mobile-app-design": {
+        title: "Mobile App Design System",
+        description: "A complete design system for a fintech mobile application, including components, typography, and user flows. Ensures consistency across the product.",
+        technologies: ["Figma", "Adobe XD", "Principle", "User Testing"],
+        features: [
+            "Component library with variants",
+            "Dark and light mode support",
+            "Interactive prototypes with user flows",
+            "Accessibility guidelines and documentation"
+        ],
+        image: "images/comingsoon.jpg",
+        links: {
+            live: "#",
+            github: "#"
+        }
     }
 };
 
@@ -203,7 +238,7 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Animate project cards on scroll (already handled in CSS, but keep for older browsers)
+// Animate project cards on scroll
 const projectObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {

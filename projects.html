@@ -28,47 +28,26 @@
     <main class="projects-container">
         <section class="projects-header">
             <h1>My <span class="highlight">Projects</span></h1>
-            <p class="subtitle">Selected works across machine learning, web development, and systems design</p>
+            <p class="subtitle">Selected works across web development, security, and UI/UX design</p>
         </section>
 
-        <!-- Project Filters (enhanced) -->
+        <!-- Project Filters (updated) -->
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="ai">AI/ML</button>
             <button class="filter-btn" data-filter="web">Web</button>
             <button class="filter-btn" data-filter="security">Security</button>
             <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
         </div>
 
-        <!-- Project Gallery (fixed structure) -->
+        <!-- Project Gallery (AI/ML removed, 3 new projects added) -->
         <div class="project-gallery">
-            <!-- Project 1 -->
-            <div class="project-card" data-category="ai" data-project-id="neural-network-optimizer">
-                <div class="project-image">
-                    <img src="images/comingsoon.jpg" alt="Neural Network Optimization">
-                    <div class="project-links">
-                        <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                        <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Neural Network Optimizer</h3>
-                    <p class="project-description">A framework for optimizing deep learning models with 40% faster inference</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">CUDA</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
+            <!-- Project 1 (previously 2) - Property Sales Site (Web) -->
             <div class="project-card" data-category="web" data-project-id="property-sales-site">
                 <div class="project-image">
                     <img src="images/project-realestate.png" alt="Property Sales Site">
                     <div class="project-links">
-                        <a href="https://github.com/delloydb/propertytech-landing-page" class="project-link" rel="noopener noreferrer" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                        <a href="https://delloydb.github.io/propertytech-landing-page/" class="project-link" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://delloydb.github.io/propertytech-landing-page/" class="project-link" rel="noopener noreferrer" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/delloydb/propertytech-landing-page" class="project-link" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="project-info">
@@ -82,7 +61,7 @@
                 </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 2 - Distributed Key-Value Store (Security) -->
             <div class="project-card" data-category="security" data-project-id="distributed-key-value-store">
                 <div class="project-image">
                     <img src="images/comingsoon.jpg" alt="Distributed Database">
@@ -102,7 +81,7 @@
                 </div>
             </div>
 
-            <!-- Project 4 -->
+            <!-- Project 3 - UI/UX Design Portfolio (UI/UX) -->
             <div class="project-card" data-category="uiux" data-project-id="uiux-design-portfolio">
                 <div class="project-image">
                     <img src="images/project-portfolio.png" alt="UI/UX Design Portfolio">
@@ -122,7 +101,7 @@
                 </div>
             </div>
 
-            <!-- Project 5 -->
+            <!-- Project 4 - Digital Time Capsule (Web) -->
             <div class="project-card" data-category="web" data-project-id="digital-time-capsule">
                 <div class="project-image">
                     <img src="images/project-capsule.png" alt="Digital Time Capsule">
@@ -142,7 +121,7 @@
                 </div>
             </div>
 
-            <!-- Project 6 -->
+            <!-- Project 5 - Fruiti Lab (Web) -->
             <div class="project-card" data-category="web" data-project-id="fruiti-lab">
                 <div class="project-image">
                     <img src="images/fruiti-lab.png" alt="Fruiti Lab">
@@ -161,9 +140,69 @@
                     </div>
                 </div>
             </div>
+
+            <!-- NEW Project 6 - Secure Authentication System (Security) -->
+            <div class="project-card" data-category="security" data-project-id="secure-auth-system">
+                <div class="project-image">
+                    <img src="images/comingsoon.jpg" alt="Secure Authentication System">
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Secure Authentication System</h3>
+                    <p class="project-description">OAuth 2.0, JWT, and multi-factor authentication for web apps</p>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW Project 7 - E-Commerce Dashboard (Web) -->
+            <div class="project-card" data-category="web" data-project-id="ecommerce-dashboard">
+                <div class="project-image">
+                    <img src="images/comingsoon.jpg" alt="E-Commerce Dashboard">
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-Commerce Dashboard</h3>
+                    <p class="project-description">Comprehensive dashboard for inventory, orders, and analytics</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Redux</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW Project 8 - Mobile App Design System (UI/UX) -->
+            <div class="project-card" data-category="uiux" data-project-id="mobile-app-design">
+                <div class="project-image">
+                    <img src="images/comingsoon.jpg" alt="Mobile App Design System">
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link" target="_blank"><i class="fab fa-figma"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Mobile App Design System</h3>
+                    <p class="project-description">Complete design system for a fintech mobile app</p>
+                    <div class="project-tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">Adobe XD</span>
+                        <span class="tag">Prototyping</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Project Modal (enhanced) -->
+        <!-- Project Modal (unchanged structure) -->
         <div class="project-modal" id="projectModal">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
