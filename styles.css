@@ -158,6 +158,12 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
+.skill-heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
 .skill-card {
     background-color: var(--card-bg);
     padding: 1.5rem;
